@@ -1,0 +1,22 @@
+{
+  "name": "zoli",
+  "version": "1.0.0",
+  "description": "zoli's module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zolinz/nodejs.git"
+  },
+  "author": "zoli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zolinz/nodejs/issues"
+  },
+  "homepage": "https://github.com/zolinz/nodejs#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
