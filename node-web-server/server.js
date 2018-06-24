@@ -85,7 +85,7 @@ app.get('/logviewer', (req, res) =>{
     }else{
         console.log(url);
 
-        res.header("Access-Control-Allow-Origin", "http://10.0.0.125:3000");
+        res.header("Access-Control-Allow-Origin", "http://logviewer-zoli-int-test.apps.nonprod.navitas.cloud");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
         res.render('index.html');
@@ -117,7 +117,7 @@ app.post('/login', (req,res) => {
     url = trylogin(req.body.accesskey, req.body.secretaccesskey, bucketname, key);
 
     //console.log('login received url: ' + url);
-    res.header("Access-Control-Allow-Origin", "http://10.0.0.125:3000");
+    res.header("Access-Control-Allow-Origin", "http://logviewer-zoli-int-test.apps.nonprod.navitas.cloud");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     //res.redirect(url);
