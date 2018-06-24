@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Session Management in NodeJS using Express4.2</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var accesskey,secretaccesskey;
+            $("#submit").click(function(){
+                accesskey=$("#accesskey").val();
+                secretaccesskey=$("#secretaccesskey").val();
+                /*
+                * Perform some validation here.
+                */
+                $.post("http://localhost:3000/login",{accesskey:accesskey,secretaccesskey:secretaccesskey},function(data){
+                    //if(data==='done')
+                    console.log(data.toString());
+                   // {
+                        window.location.href=data.toString();
+                   // }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="text" size="60" placeholder="Type your accesskey"  id="accesskey"><br />
+<input type="password" size="60" placeholder="Type your secretaccesskey"  id="secretaccesskey"><br />
+<input type="button" value="Submit" id="submit">
+</body>
+</html></html>
