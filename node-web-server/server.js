@@ -3,7 +3,11 @@ const hbs = require('hbs');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
-const AWS = require('aws-sdk')
+const AWS = require('aws-sdk');
+
+const config = require('./config/config.json');
+
+
 
 var app = express();
 
@@ -85,17 +89,20 @@ app.get('/logviewer', (req, res) =>{
     }else{
         console.log(url);
 
-        res.header("Access-Control-Allow-Origin", "http://logviewer-zoli-int-test.apps.nonprod.navitas.cloud");
+        res.header("Access-Control-Allow-Origin", config.serviceUrl);
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-        res.render('index.html');
+        res.render('index.html', config);
     }
 
 });
 
 
 app.get('/testpage', (req, res) =>{
-        res.render('testpage.html');
+
+    console.log(config.serviceUrl);
+
+    res.render('testpage.html', config);
 });
 
 
@@ -117,7 +124,7 @@ app.post('/login', (req,res) => {
     url = trylogin(req.body.accesskey, req.body.secretaccesskey, bucketname, key);
 
     //console.log('login received url: ' + url);
-    res.header("Access-Control-Allow-Origin", "http://logviewer-zoli-int-test.apps.nonprod.navitas.cloud");
+    res.header("Access-Control-Allow-Origin", config.serviceUrl);
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     //res.redirect(url);
@@ -150,12 +157,7 @@ app.get('/logout',(req,res) => {
 
 
 app.listen(8080, () => {
-
-    //trylogin();
     console.log('server is up');
-    //trylogin();
-    //trylogin();
-    //trylogin();
 });
 
 

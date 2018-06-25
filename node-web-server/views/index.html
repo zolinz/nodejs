@@ -11,7 +11,7 @@
                 /*
                 * Perform some validation here.
                 */
-                $.post("http://logviewer-zoli-int-test.apps.nonprod.navitas.cloud/login",{accesskey:accesskey,secretaccesskey:secretaccesskey},function(data){
+                $.post('<%- serviceUrl %>/login' ,{accesskey:accesskey,secretaccesskey:secretaccesskey},function(data){
                     //if(data==='done')
                     console.log(data.toString());
                    // {
